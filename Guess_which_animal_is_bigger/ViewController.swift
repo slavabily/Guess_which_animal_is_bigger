@@ -10,14 +10,12 @@ import UIKit
 import GameplayKit
 
 enum Animals: Int {
-    case elephant = 6
-    case dolphin = 4
-    case bear = 5
-    case crocodile = 3
-    case deer = 2
-    case wolf = 1
-    
-    
+    case elephant
+    case dolphin
+    case bear
+    case crocodile
+    case deer
+    case wolf
 }
 
 class ViewController: UIViewController {
@@ -25,6 +23,10 @@ class ViewController: UIViewController {
     var animals = [String]()
     var correctAnswer = 0
     var score = 0
+    
+    var button1Name: String!
+    var button2Name: String!
+    var button3Name: String!
     
     let button1 = UIButton()
     let button2 = UIButton()
@@ -87,21 +89,75 @@ class ViewController: UIViewController {
         
         animals = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: animals) as! [String]
         
-        button1.setImage(UIImage(named: animals[0]), for: .normal)
-        button2.setImage(UIImage(named: animals[1]), for: .normal)
-        button3.setImage(UIImage(named: animals[2]), for: .normal)
+        button1Name = animals[0]
+        button2Name = animals[1]
+        button3Name = animals[2]
         
-        let elephant = String(describing: Animals.elephant)
+        button1.setImage(UIImage(named: button1Name), for: .normal)
+        button2.setImage(UIImage(named: button2Name), for: .normal)
+        button3.setImage(UIImage(named: button3Name), for: .normal)
         
-        if elephant == "elephant" {
-            print("YYYYYYY")
-        }
-
- 
         title = "Which animal is bigger?"
         
+        compare()
     }
-
-
+    
+    func compare() {
+        let buttonsNames = [button1Name, button2Name, button3Name]
+        var animalsSizes = [Int]()
+        
+        for buttonName in buttonsNames {
+            switch buttonName {
+            case "elephant":
+                animalsSizes.append(6)
+            case "crocodile":
+                animalsSizes.append(5)
+            case "deer":
+                animalsSizes.append(4)
+            case "wolf":
+                animalsSizes.append(3)
+            case "dolphin":
+                animalsSizes.append(2)
+            case "bear":
+                animalsSizes.append(1)
+            default:
+                break
+            }
+        }
+        
+        if let maxSizeAnimal = animalsSizes.max() {
+            if let index = animalsSizes.firstIndex(of: maxSizeAnimal) {
+                correctAnswer = index
+            } else {
+                fatalError("Size of max animal could no be found.")
+            }
+            print("Max size animal number:\(maxSizeAnimal) \n", "correctAnswer:\(correctAnswer)")
+            
+        } else {
+            fatalError("Max size animal could not be found.")
+        }
+        
+ 
+    }
+    
+   @objc func buttonTapped(_ sender: UIButton) {
+        
+        var title: String
+        
+        if sender.tag == correctAnswer {
+            title = "Correct"
+            score += 1
+        } else {
+            title = "Wrong"
+            score -= 1
+        }
+        
+        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion(action:)))
+        present(ac, animated: true)
+        
+        scoreLabel.text = "Score: \(score)"
+    }
+    
 }
 
