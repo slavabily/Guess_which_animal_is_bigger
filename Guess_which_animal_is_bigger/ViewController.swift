@@ -9,15 +9,6 @@
 import UIKit
 import GameplayKit
 
-enum Animals: Int {
-    case elephant
-    case dolphin
-    case bear
-    case crocodile
-    case deer
-    case wolf
-}
-
 class ViewController: UIViewController {
     
     var animals = [String]()
@@ -97,6 +88,14 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: button2Name), for: .normal)
         button3.setImage(UIImage(named: button3Name), for: .normal)
         
+        button1.tag = 0
+        button2.tag = 1
+        button3.tag = 2
+        
+        button1.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        
         title = "Which animal is bigger?"
         
         compare()
@@ -136,8 +135,6 @@ class ViewController: UIViewController {
         } else {
             fatalError("Max size animal could not be found.")
         }
-        
- 
     }
     
    @objc func buttonTapped(_ sender: UIButton) {
@@ -156,7 +153,7 @@ class ViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion(action:)))
         present(ac, animated: true)
         
-        scoreLabel.text = "Score: \(score)"
+         scoreLabel.attributedText = NSAttributedString(string: "Score: \(score)", attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .largeTitle)])
     }
     
 }
