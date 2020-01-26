@@ -9,7 +9,9 @@
 import UIKit
 import GameplayKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
     
     var animals = [String]()
     var correctAnswer = 0
@@ -112,13 +114,13 @@ class ViewController: UIViewController {
             case "crocodile":
                 animalsSizes.append(5)
             case "deer":
-                animalsSizes.append(4)
-            case "wolf":
                 animalsSizes.append(3)
-            case "dolphin":
-                animalsSizes.append(2)
-            case "bear":
+            case "wolf":
                 animalsSizes.append(1)
+            case "dolphin":
+                animalsSizes.append(4)
+            case "bear":
+                animalsSizes.append(2)
             default:
                 break
             }
