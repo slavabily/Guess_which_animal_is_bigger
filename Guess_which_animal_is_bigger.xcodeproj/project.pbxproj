@@ -18,6 +18,7 @@
 		B98B0B5C23D9FD4700D5DA10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98B0B5A23D9FD4700D5DA10 /* LaunchScreen.storyboard */; };
 		B98B0B6723D9FD4700D5DA10 /* Guess_which_animal_is_biggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98B0B6623D9FD4700D5DA10 /* Guess_which_animal_is_biggerTests.swift */; };
 		B98B0B7223D9FD4700D5DA10 /* Guess_which_animal_is_biggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98B0B7123D9FD4700D5DA10 /* Guess_which_animal_is_biggerUITests.swift */; };
+		B9F7576623DDE4C100F14EE5 /* ProjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F7576523DDE4C100F14EE5 /* ProjectDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B98B0B6D23D9FD4700D5DA10 /* Guess_which_animal_is_biggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Guess_which_animal_is_biggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98B0B7123D9FD4700D5DA10 /* Guess_which_animal_is_biggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess_which_animal_is_biggerUITests.swift; sourceTree = "<group>"; };
 		B98B0B7323D9FD4800D5DA10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9F7576523DDE4C100F14EE5 /* ProjectDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				B966DF4023DD7CC40033EE7C /* Storyboarded.swift */,
 				B966DF3E23DD7C060033EE7C /* Coordinator.swift */,
 				B966DF4223DD7F0F0033EE7C /* MainCoordinator.swift */,
+				B9F7576523DDE4C100F14EE5 /* ProjectDataSource.swift */,
 				B98B0B5323D9FD3E00D5DA10 /* ViewController.swift */,
 				B98B0B5523D9FD3E00D5DA10 /* Main.storyboard */,
 				B98B0B5823D9FD4700D5DA10 /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F7576623DDE4C100F14EE5 /* ProjectDataSource.swift in Sources */,
 				B966DF3F23DD7C060033EE7C /* Coordinator.swift in Sources */,
 				B966DF4323DD7F0F0033EE7C /* MainCoordinator.swift in Sources */,
 				B98B0B5423D9FD3E00D5DA10 /* ViewController.swift in Sources */,
