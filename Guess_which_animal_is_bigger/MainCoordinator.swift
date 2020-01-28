@@ -12,15 +12,25 @@ import UIKit
 class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
     var children = [Coordinator]()
+    let vc = ViewController.instantiate()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    func start() {
-        let vc = ViewController.instantiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+    func start(_ dataSource: ProjectDataSource) {
+        
+        vc.dataSource = dataSource
+        
+        vc.showMainViewAction = showMainView(_:)
+        
+         navigationController.pushViewController(vc, animated: false)
     }
     
+    func showMainView(_ dataSource: ProjectDataSource) {
+ 
+        vc.view = MainView(dataSource: dataSource, buttonAction: { [unowned vc] (b) in
+            vc.buttonAction(b)
+        })
+    }
 }

@@ -12,6 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var coordinator: MainCoordinator!
+    let datasource = ProjectDataSource()
 
 
    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -25,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
            
            let navController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navController)
-           coordinator.start()
+           coordinator.start(datasource)
            
            appWindow.rootViewController = navController
            appWindow.makeKeyAndVisible()

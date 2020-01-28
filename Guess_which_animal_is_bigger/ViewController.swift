@@ -11,14 +11,11 @@ import GameplayKit
 
 class ViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: MainCoordinator?
-    
-    let dataSource = ProjectDataSource()
+    var showMainViewAction: ((ProjectDataSource) -> Void)?
+    var dataSource = ProjectDataSource()
     
     override func loadView() {
-        view = MainView(dataSource: dataSource, buttonAction: { [unowned self] (b) in
-            self.buttonAction(b)
-        })
+        showMainViewAction?(dataSource)
     }
 
     override func viewDidLoad() {
@@ -27,7 +24,6 @@ class ViewController: UIViewController, Storyboarded {
         navigationItem.largeTitleDisplayMode = .never
         
         title = "Which animal is bigger?"
-        
      }
     
     func buttonAction(_ sender: UIButton) {
@@ -49,9 +45,7 @@ class ViewController: UIViewController, Storyboarded {
     }
     
     func reloadMainView(action: UIAlertAction) {
-        view = MainView(dataSource: dataSource, buttonAction: { (b) in
-            self.buttonAction(b)
-        })
+        showMainViewAction?(dataSource)
     }
 }
 
