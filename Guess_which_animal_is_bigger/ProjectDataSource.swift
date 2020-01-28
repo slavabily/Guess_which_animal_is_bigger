@@ -21,12 +21,7 @@ class ProjectDataSource: NSObject {
     
     func prepareQuestion() {
         
-        animals.append("elephant")
-        animals.append("dolphin")
-        animals.append("bear")
-        animals.append("crocodile")
-        animals.append("deer")
-        animals.append("wolf")
+        animals = ["elephant", "dolphin", "bear", "crocodile", "deer", "wolf"]
         
         animals = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: animals) as! [String]
         
