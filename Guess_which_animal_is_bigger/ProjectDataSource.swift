@@ -6,12 +6,17 @@
 //  Copyright © 2020 slava bily. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import GameplayKit
 
 struct ProjectDataSource {
     
-    var animals = [String]()
+   private var animals = [String]()
+    
+    var count: Int {
+        return animals.count
+    }
+    
     var correctAnswer = 0
     var score = 0
     
