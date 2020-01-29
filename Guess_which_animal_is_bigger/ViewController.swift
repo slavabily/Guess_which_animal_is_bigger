@@ -15,6 +15,8 @@ class ViewController: UIViewController, Storyboarded {
     var dataSource = ProjectDataSource()
     
     override func loadView() {
+        dataSource.prepareQuestion()
+        dataSource.prepareAnswer()
         showMainViewAction?(dataSource)
     }
 
@@ -45,6 +47,8 @@ class ViewController: UIViewController, Storyboarded {
     }
     
     func reloadMainView(action: UIAlertAction) {
+        dataSource.prepareQuestion()
+        dataSource.prepareAnswer()
         showMainViewAction?(dataSource)
     }
 }

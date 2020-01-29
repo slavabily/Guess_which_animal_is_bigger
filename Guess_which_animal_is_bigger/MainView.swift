@@ -71,14 +71,12 @@ class MainView: UIView {
         button2.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         button3.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         
-        dataSource.prepareQuestion()
-        
+ 
         button1.setImage(UIImage(named: dataSource.button1Name), for: .normal)
         button2.setImage(UIImage(named: dataSource.button2Name), for: .normal)
         button3.setImage(UIImage(named: dataSource.button3Name), for: .normal)
         
-        dataSource.prepareAnswer()
-        
+ 
         scoreLabel.attributedText = NSAttributedString(string: "Score: \(dataSource.score)", attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .largeTitle)])
     }
     
