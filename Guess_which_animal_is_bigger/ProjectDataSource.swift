@@ -9,7 +9,7 @@
 import UIKit
 import GameplayKit
 
-class ProjectDataSource: NSObject {
+struct ProjectDataSource {
     
     var animals = [String]()
     var correctAnswer = 0
@@ -19,7 +19,7 @@ class ProjectDataSource: NSObject {
     var button2Name: String!
     var button3Name: String!
     
-    func prepareQuestion() {
+    mutating func prepareQuestion() {
         
         animals = ["elephant", "dolphin", "bear", "crocodile", "deer", "wolf"]
         
@@ -30,7 +30,7 @@ class ProjectDataSource: NSObject {
         button3Name = animals[2]
     }
     
-    func prepareAnswer() {
+    mutating func prepareAnswer() {
         let buttonsNames = [button1Name, button2Name, button3Name]
         var animalsSizes = [Int]()
         
