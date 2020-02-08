@@ -25,8 +25,19 @@ class ViewController: UIViewController, Storyboarded {
         
         navigationItem.largeTitleDisplayMode = .never
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+        
         title = "Which animal is bigger?"
+        
      }
+    
+    @objc func shareTapped() {
+        let ad = "Nice APP!"
+        
+        let vc = UIActivityViewController(activityItems: [ad], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
     
     func buttonAction(_ sender: UIButton) {
         
