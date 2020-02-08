@@ -27,8 +27,9 @@ class ViewController: UIViewController, Storyboarded {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         
-        title = "Which animal is bigger?"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(showScoreTapped))
         
+        title = "Which animal is bigger?"
      }
     
     @objc func shareTapped() {
@@ -36,6 +37,14 @@ class ViewController: UIViewController, Storyboarded {
         
         let vc = UIActivityViewController(activityItems: [ad], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
+    @objc func showScoreTapped() {
+        let score = "Score: " + dataSource.score.description + " - the croc is bigger than dolph :)"
+        
+        let vc = UIActivityViewController(activityItems: [score], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
         present(vc, animated: true)
     }
     
